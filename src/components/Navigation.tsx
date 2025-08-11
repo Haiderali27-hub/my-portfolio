@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, FileDown } from 'lucide-react';
+import { FileDown, Menu, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import resumePDF from '../assets/resume.pdf';
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -65,10 +66,12 @@ export const Navigation = () => {
                 {item.name}
               </button>
             ))}
-            <Button size="sm" className="bg-gradient-primary">
-              <FileDown className="h-4 w-4 mr-2" />
-              Resume
-            </Button>
+            <a href={resumePDF} download="HaiderAli-Resume.pdf">
+              <Button size="sm" className="bg-gradient-primary">
+                <FileDown className="h-4 w-4 mr-2" />
+                Resume
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -95,10 +98,12 @@ export const Navigation = () => {
                   {item.name}
                 </button>
               ))}
-              <Button size="sm" className="bg-gradient-primary w-fit">
-                <FileDown className="h-4 w-4 mr-2" />
-                Resume
-              </Button>
+              <a href={resumePDF} download="HaiderAli-Resume.pdf">
+                <Button size="sm" className="bg-gradient-primary w-fit">
+                  <FileDown className="h-4 w-4 mr-2" />
+                  Resume
+                </Button>
+              </a>
             </div>
           </div>
         )}

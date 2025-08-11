@@ -3,15 +3,16 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import emailjs from '@emailjs/browser';
 import {
-    Calendar,
-    Coffee,
-    Github,
-    Linkedin,
-    Mail,
-    MessageSquare,
-    Phone,
-    Send
+  Calendar,
+  Coffee,
+  Github,
+  Linkedin,
+  Mail,
+  MessageSquare,
+  Phone,
+  Send
 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { toast } from 'sonner';
@@ -24,6 +25,7 @@ export const Contact = () => {
     subject: '',
     message: ''
   });
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -50,11 +52,32 @@ export const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically handle form submission
-    toast.success("Message sent! I'll get back to you soon.");
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setLoading(true);
+    try {
+      await emailjs.send(
+        'service_gl3ptth',
+        'template_km309qf',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message
+        },
+        'tlsBEw4_4kbEiCsFr'
+      );
+      toast.success("🎉 Message sent! I'll get back to you soon.", {
+        style: { background: 'linear-gradient(90deg, #00c6ff 0%, #0072ff 100%)', color: '#fff' }
+      });
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      toast.error("❌ Failed to send message. Please try again later.", {
+        style: { background: 'linear-gradient(90deg, #ff5858 0%, #f09819 100%)', color: '#fff' }
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const contactMethods = [
@@ -291,10 +314,23 @@ export const Contact = () => {
                     <Button 
                       type="submit" 
                       size="lg" 
-                      className="w-full bg-gradient-primary hover:glow-primary transition-all duration-300 font-semibold"
+                      className={`w-full bg-gradient-primary hover:glow-primary transition-all duration-300 font-semibold flex items-center justify-center relative ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
+                      disabled={loading}
                     >
-                      <Send className="h-5 w-5 mr-2" />
-                      Send Message
+                      {loading ? (
+                        <span className="flex items-center justify-center w-full">
+                          <svg className="animate-spin mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                          </svg>
+                          Sending...
+                        </span>
+                      ) : (
+                        <>
+                          <Send className="h-5 w-5 mr-2" />
+                          Send Message
+                        </>
+                      )}
                     </Button>
 
                     <p className="text-xs text-muted-foreground text-center">
