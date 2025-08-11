@@ -6,8 +6,6 @@ export default defineConfig({
   base: '/my-portfolio/',
   plugins: [react()],
   resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
-    },
+    alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
   },
 })
