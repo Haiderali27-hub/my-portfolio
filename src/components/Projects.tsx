@@ -31,7 +31,7 @@ export const Projects = () => {
     {
       title: "Hassan Clothing Store",
       description: "A live clothing brand website built on Shopify. The site features a modern, responsive design, seamless product browsing, and secure checkout. Hassan Cloth brings traditional and contemporary fashion together, making online shopping easy and engaging for customers.",
-      image: "/images/projects/hassancloth/hassancloth.png",
+      image: "/my-portfolio/images/projects/hassancloth/hassancloth.png",
       technologies: ["Shopify", "Liquid", "HTML/CSS", "JavaScript"],
       type: "E-commerce Website",
       icon: Globe,
@@ -42,17 +42,17 @@ export const Projects = () => {
       demoType: "images" as const,
       demoContent: {
         images: [
-          "/images/projects/hassancloth/preview/1.png",
-          "/images/projects/hassancloth/preview/2.png",
-          "/images/projects/hassancloth/preview/3.png",
-          "/images/projects/hassancloth/preview/4.png"
+          "/my-portfolio/images/projects/hassancloth/preview/1.png",
+          "/my-portfolio/images/projects/hassancloth/preview/2.png",
+          "/my-portfolio/images/projects/hassancloth/preview/3.png",
+          "/my-portfolio/images/projects/hassancloth/preview/4.png"
         ]
       }
     },
     {
       title: "Yasin Heaven Star Hotel",
       description: "A comprehensive hotel management website featuring a modern React frontend and robust Node.js backend with MongoDB database. The platform includes customer booking system, room management, admin dashboard for hotel operations, and is fully deployed with frontend on Netlify and backend on Railway. Features real-time availability, and complete hotel management capabilities.",
-      image: "/src/images/projects/hotel/hotel.png",
+      image: "/my-portfolio/images/projects/hotel/hotel.png",
       technologies: ["React", "Node.js", "MongoDB", "Express.js", "Netlify", "Railway"],
       type: "Full-Stack Web App",
       icon: Globe,
@@ -68,7 +68,7 @@ export const Projects = () => {
     {
       title: "JobApp - Job Application Platform",
       description: "A modern job application platform built with Flutter for the frontend and Firebase for the backend. The app allows users to browse, search, and apply for jobs in real-time, with secure authentication and cloud data storage. Employers can post jobs and manage applications efficiently.",
-      image: "/images/projects/jopapp/jobapp.png",
+      image: "/my-portfolio/images/projects/jopapp/jobapp.png",
       technologies: ["Flutter", "Dart", "Firebase", "Cloud Storage", "Authentication"],
       type: "Mobile App",
       icon: Smartphone,
@@ -79,23 +79,23 @@ export const Projects = () => {
       demoType: "images" as const,
       demoContent: {
         images: [
-          "/images/projects/jopapp/preview/Home.png",
-          "/images/projects/jopapp/preview/Home-1.png",
-          "/images/projects/jopapp/preview/Home-2.png",
-          "/images/projects/jopapp/preview/Home-3.png",
-          "/images/projects/jopapp/preview/Home-4.png",
-          "/images/projects/jopapp/preview/Home-5.png",
-          "/images/projects/jopapp/preview/Home-6.png",
-          "/images/projects/jopapp/preview/Home-7.png",
-          "/images/projects/jopapp/preview/My Profile.png",
-          "/images/projects/jopapp/preview/Detailed Card for swiping.png"
+          "/my-portfolio/images/projects/jopapp/preview/Home.png",
+          "/my-portfolio/images/projects/jopapp/preview/Home-1.png",
+          "/my-portfolio/images/projects/jopapp/preview/Home-2.png",
+          "/my-portfolio/images/projects/jopapp/preview/Home-3.png",
+          "/my-portfolio/images/projects/jopapp/preview/Home-4.png",
+          "/my-portfolio/images/projects/jopapp/preview/Home-5.png",
+          "/my-portfolio/images/projects/jopapp/preview/Home-6.png",
+          "/my-portfolio/images/projects/jopapp/preview/Home-7.png",
+          "/my-portfolio/images/projects/jopapp/preview/My Profile.png",
+          "/my-portfolio/images/projects/jopapp/preview/Detailed Card for swiping.png"
         ]
       }
     },
     {
       title: "Listen Up - AI Sound Classification",
       description: "Listen Up is a cross-platform app built with Flutter for the frontend and Python for the backend, featuring a custom-trained AI for sound classification. The app captures sound from the user, sends it to the backend for analysis, and notifies the user about the detected sound type. PHP and MySQL are used for database management and connectivity.",
-      image: "/images/projects/listenupp/listen up.png",
+      image: "/my-portfolio/images/projects/listenupp/listen up.png",
       technologies: ["Flutter", "Python", "AI/ML", "PHP", "MySQL", "Sound Processing"],
       type: "Mobile App",
       icon: Smartphone,
@@ -106,21 +106,21 @@ export const Projects = () => {
       demoType: "images" as const,
       demoContent: {
         images: [
-          "/images/projects/listenupp/preview/1.png",
-          "/images/projects/listenupp/preview/2.png",
-          "/images/projects/listenupp/preview/3.png",
-          "/images/projects/listenupp/preview/4.png",
-          "/images/projects/listenupp/preview/5.png",
-          "/images/projects/listenupp/preview/6.png",
-          "/images/projects/listenupp/preview/7.png",
-          "/images/projects/listenupp/preview/8.png"
+          "/my-portfolio/images/projects/listenupp/preview/1.png",
+          "/my-portfolio/images/projects/listenupp/preview/2.png",
+          "/my-portfolio/images/projects/listenupp/preview/3.png",
+          "/my-portfolio/images/projects/listenupp/preview/4.png",
+          "/my-portfolio/images/projects/listenupp/preview/5.png",
+          "/my-portfolio/images/projects/listenupp/preview/6.png",
+          "/my-portfolio/images/projects/listenupp/preview/7.png",
+          "/my-portfolio/images/projects/listenupp/preview/8.png"
         ]
       }
     },
     {
       title: "Portfolio Website",
       description: "Personal portfolio website showcasing projects and skills. Built with modern React, featuring smooth animations, responsive design, and optimized performance. A comprehensive showcase of my development journey and technical expertise.",
-      image: "/images/projects/portfolio.png",
+      image: "/my-portfolio/images/projects/portfolio.png",
       technologies: ["React", "TypeScript", "Tailwind CSS", "Vite", "Animations"],
       type: "Web App",
       icon: Globe,
