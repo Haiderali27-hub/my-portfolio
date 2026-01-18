@@ -1,5 +1,11 @@
 import { Button } from '@/components/ui/button';
-import { FileDown, Menu, X } from 'lucide-react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { Download, Eye, FileDown, Menu, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import resumePDF from '../assets/resume.pdf';
 
@@ -66,12 +72,26 @@ export const Navigation = () => {
                 {item.name}
               </button>
             ))}
-            <a href={resumePDF} download="HaiderAli-Resume.pdf">
-              <Button size="sm" className="bg-gradient-primary">
-                <FileDown className="h-4 w-4 mr-2" />
-                Resume
-              </Button>
-            </a>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button size="sm" className="bg-gradient-primary">
+                  <FileDown className="h-4 w-4 mr-2" />
+                  Resume
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => window.open(resumePDF, '_blank')}>
+                  <Eye className="h-4 w-4 mr-2" />
+                  Preview Resume
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href={resumePDF} download="HaiderAli-Resume.pdf">
+                    <Download className="h-4 w-4 mr-2" />
+                    Download Resume
+                  </a>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* Mobile Menu Button */}
@@ -98,12 +118,26 @@ export const Navigation = () => {
                   {item.name}
                 </button>
               ))}
-              <a href={resumePDF} download="HaiderAli-Resume.pdf">
-                <Button size="sm" className="bg-gradient-primary w-fit">
-                  <FileDown className="h-4 w-4 mr-2" />
-                  Resume
-                </Button>
-              </a>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button size="sm" className="bg-gradient-primary w-fit">
+                    <FileDown className="h-4 w-4 mr-2" />
+                    Resume
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start">
+                  <DropdownMenuItem onClick={() => window.open(resumePDF, '_blank')}>
+                    <Eye className="h-4 w-4 mr-2" />
+                    Preview Resume
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <a href={resumePDF} download="HaiderAli-Resume.pdf">
+                      <Download className="h-4 w-4 mr-2" />
+                      Download Resume
+                    </a>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
         )}

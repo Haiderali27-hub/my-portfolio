@@ -2,6 +2,8 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import {
+    ChevronLeft,
+    ChevronRight,
     ExternalLink,
     Github,
     Monitor,
@@ -35,6 +37,22 @@ interface ProjectDemoProps {
 export const ProjectDemo = ({ project, isOpen, onClose }: ProjectDemoProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePrevImage = () => {
+    if (project.demoContent?.images) {
+      setCurrentImageIndex((prev) => 
+        prev === 0 ? project.demoContent.images!.length - 1 : prev - 1
+      );
+    }
+  };
+
+  const handleNextImage = () => {
+    if (project.demoContent?.images) {
+      setCurrentImageIndex((prev) => 
+        prev === project.demoContent.images!.length - 1 ? 0 : prev + 1
+      );
+    }
+  };
 
   if (!isOpen) return null;
 
@@ -98,12 +116,34 @@ export const ProjectDemo = ({ project, isOpen, onClose }: ProjectDemoProps) => {
         return (
           <div className="space-y-4">
             {/* Main Image Display */}
-            <div className="relative">
+            <div className="relative flex justify-center group">
               <img
                 src={project.demoContent.images?.[currentImageIndex] || '/api/placeholder/800/450'}
                 alt={`${project.title} Screenshot ${currentImageIndex + 1}`}
-                className="w-full rounded-lg shadow-lg"
+                className={`rounded-lg shadow-lg ${project.type === 'Mobile App' ? 'max-h-[600px] w-auto' : 'w-full'}`}
               />
+              
+              {/* Navigation Arrows */}
+              {project.demoContent.images && project.demoContent.images.length > 1 && (
+                <>
+                  <Button
+                    variant="secondary"
+                    size="icon"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-background/80 backdrop-blur-sm hover:bg-background/90"
+                    onClick={handlePrevImage}
+                  >
+                    <ChevronLeft className="h-5 w-5" />
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    size="icon"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-background/80 backdrop-blur-sm hover:bg-background/90"
+                    onClick={handleNextImage}
+                  >
+                    <ChevronRight className="h-5 w-5" />
+                  </Button>
+                </>
+              )}
               
               {/* Image Navigation */}
               {project.demoContent.images && project.demoContent.images.length > 1 && (
