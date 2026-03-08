@@ -1,5 +1,5 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { Brain, Code, Palette, Smartphone } from 'lucide-react';
+import { Award, Brain, Code, Palette, Smartphone, Users } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 
 export const About = () => {
@@ -156,6 +156,84 @@ export const About = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+
+          {/* Leadership & Ambassador Section */}
+          <div className="mb-16 reveal opacity-0">
+            <Card className="bg-gradient-to-br from-primary/10 via-accent/10 to-primary/10 border-primary/30 hover-lift">
+              <CardContent className="p-8">
+                <div className="flex items-center justify-center mb-6">
+                  <Award className="h-8 w-8 text-primary mr-3" />
+                  <h3 className="text-3xl font-bold font-display text-gradient-primary">
+                    Leadership & Community Impact
+                  </h3>
+                </div>
+                
+                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                  {/* MLSA Technical Lead */}
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center flex-shrink-0 glow-primary">
+                        <Users className="h-6 w-6 text-primary-foreground" />
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold mb-2">Microsoft Learn Student Ambassador</h4>
+                        <p className="text-sm text-accent font-semibold mb-2">Technical Lead</p>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Led technical workshops and mentored students in modern development practices. 
+                          Organized community events, hackathons, and study groups that helped bridge the gap 
+                          between academic theory and industry-ready technical skills.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Community Builder */}
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-gradient-accent rounded-lg flex items-center justify-center flex-shrink-0 glow-primary">
+                        <Brain className="h-6 w-6 text-primary-foreground" />
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold mb-2">Technical Mentor & Event Organizer</h4>
+                        <p className="text-sm text-accent font-semibold mb-2">Community Builder</p>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Passionate about empowering fellow students through hands-on learning experiences. 
+                          Facilitated coding bootcamps, led Git workshops, and created mentorship programs 
+                          that transformed beginners into confident developers.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Key Achievements */}
+                <div className="bg-background/50 rounded-lg p-6 backdrop-blur-sm">
+                  <h4 className="text-lg font-bold mb-4 text-center">Key Achievements</h4>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-primary mb-1">50+</div>
+                      <div className="text-sm text-muted-foreground">Students Mentored</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-accent mb-1">10+</div>
+                      <div className="text-sm text-muted-foreground">Workshops Organized</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-primary mb-1">5+</div>
+                      <div className="text-sm text-muted-foreground">Community Events</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Testimonial Placeholder */}
+                <div className="mt-6 text-center">
+                  <blockquote className="text-muted-foreground italic">
+                    "Empowering developers through knowledge sharing and building communities that thrive on collaboration and continuous learning."
+                  </blockquote>
+                </div>
+              </CardContent>
+            </Card>
           </div>
 
           {/* Interests & Hobbies */}

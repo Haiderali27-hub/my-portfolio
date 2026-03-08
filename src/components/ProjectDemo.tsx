@@ -15,6 +15,7 @@ import { useState } from 'react';
 interface ProjectDemoProps {
   project: {
     title: string;
+    tagline?: string;
     description: string;
     technologies: string[];
     type: string;
@@ -28,6 +29,12 @@ interface ProjectDemoProps {
       iframeUrl?: string;
       images?: string[];
       mockupImages?: string[];
+    };
+    star?: {
+      situation: string;
+      task: string;
+      action: string;
+      result: string;
     };
   };
   isOpen: boolean;
@@ -213,7 +220,7 @@ export const ProjectDemo = ({ project, isOpen, onClose }: ProjectDemoProps) => {
         <CardContent className="p-0">
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-border">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 flex-1">
               <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${project.color} flex items-center justify-center`}>
                 {project.type === 'Mobile App' ? (
                   <Smartphone className="h-5 w-5 text-white" />
@@ -221,9 +228,12 @@ export const ProjectDemo = ({ project, isOpen, onClose }: ProjectDemoProps) => {
                   <Monitor className="h-5 w-5 text-white" />
                 )}
               </div>
-              <div>
+              <div className="flex-1">
                 <h2 className="text-2xl font-bold">{project.title}</h2>
-                <p className="text-muted-foreground">{project.type}</p>
+                {project.tagline && (
+                  <p className="text-sm text-muted-foreground italic mt-0.5">{project.tagline}</p>
+                )}
+                <p className="text-xs text-muted-foreground mt-1">{project.type}</p>
               </div>
             </div>
             <Button
@@ -240,6 +250,49 @@ export const ProjectDemo = ({ project, isOpen, onClose }: ProjectDemoProps) => {
           <div className="p-6">
             {renderDemo()}
           </div>
+
+          {/* STAR Method Breakdown */}
+          {project.star && (
+            <div className="p-6 border-t border-border bg-gradient-to-br from-primary/5 to-secondary/5">
+              <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                <span className="text-primary">✦</span> Impact & Achievement
+              </h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <div className="flex items-start gap-2">
+                    <span className="text-xs font-bold text-primary/70 mt-1">S</span>
+                    <div>
+                      <h4 className="text-sm font-semibold text-primary">Situation</h4>
+                      <p className="text-sm text-muted-foreground">{project.star.situation}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-xs font-bold text-primary/70 mt-1">T</span>
+                    <div>
+                      <h4 className="text-sm font-semibold text-primary">Task</h4>
+                      <p className="text-sm text-muted-foreground">{project.star.task}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-start gap-2">
+                    <span className="text-xs font-bold text-primary/70 mt-1">A</span>
+                    <div>
+                      <h4 className="text-sm font-semibold text-primary">Action</h4>
+                      <p className="text-sm text-muted-foreground">{project.star.action}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-xs font-bold text-primary/70 mt-1">R</span>
+                    <div>
+                      <h4 className="text-sm font-semibold text-primary">Result</h4>
+                      <p className="text-sm text-muted-foreground">{project.star.result}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Project Info */}
           <div className="p-6 border-t border-border bg-secondary/10">

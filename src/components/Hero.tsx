@@ -142,11 +142,11 @@ export const Hero = () => {
           {/* Description */}
           <div className="reveal opacity-0">
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Passionate about creating innovative mobile and web applications using 
-              <span className="text-primary font-semibold"> Flutter</span>,
-              <span className="text-primary font-semibold"> React Native</span>,
-              <span className="text-primary font-semibold"> React</span>, and
-              <span className="text-primary font-semibold"> Shopify</span>.
+              Passionate about creating innovative mobile and web applications using{' '}
+              <span className="text-primary font-semibold hover-glow">Flutter</span>,{' '}
+              <span className="text-primary font-semibold hover-glow">React Native</span>,{' '}
+              <span className="text-primary font-semibold hover-glow">React</span>, and{' '}
+              <span className="text-primary font-semibold hover-glow">Shopify</span>.
               Let's build something amazing together.
             </p>
           </div>
